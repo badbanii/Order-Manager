@@ -1,25 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout>
 
-    <WebView
-        android:id="@+id/webView"
+    <data>
+
+        <variable
+            name="order"
+            type="com.tuly.ordermanager.models.Order" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:background="#ffd300">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="32dp"
-        android:src="@drawable/ic_launcher_background"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <TextView
+            android:id="@+id/textview_detail_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small.OrderManager.Medium"
+            android:textColor="@color/black"
+            android:textSize="50sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="ID" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded_view"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_detail_id">
+
+            <TextView
+                android:id="@+id/textview_detail_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small.OrderManager.Medium"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="description"
+
+                />
+
+            <TextView
+                android:id="@+id/textview_detail_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textview_detail_description"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small.OrderManager.Medium"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                tools:text="price" />
+
+            <TextView
+                android:id="@+id/textview_detail_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textview_detail_price"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small.OrderManager.Medium"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                tools:text="status" />
+
+            <TextView
+                android:id="@+id/textview_detail_owner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textview_detail_status"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small.OrderManager.Medium"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                tools:text="owner" />
+
+            <TextView
+                android:id="@+id/textview_modifystatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textview_detail_owner"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5dp"
+                android:text="Modify status"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small.OrderManager.Medium"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
+            <RadioGroup
+                android:id="@+id/radiogroup_status"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_below="@id/textview_modifystatus"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="25dp"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radiobutton_new"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="New"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small.OrderManager.Medium"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/radiobutton_pending"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Pending"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small.OrderManager.Medium"
+                    android:textColor="@color/white" />
+
+                <RadioButton
+                    android:id="@+id/radiobutton_delivered"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Delivered"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small.OrderManager.Medium"
+                    android:textColor="@color/white" />
+            </RadioGroup>
 
 
+        </RelativeLayout>
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="32dp"
+            android:backgroundTint="@color/black"
+            android:src="@drawable/ic_saved_orders"
+            app:fabSize="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

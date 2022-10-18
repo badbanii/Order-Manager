@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">Order Manager Reloaded</string>
+    <string name="app_name">Order Manager</string>
+    <string name="new_status">new</string>
+    <string name="pending_status">pending</string>
+    <string name="delivered_status">delivered</string>
 </resources>

@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/newOrdersFragment"
-        android:title="New"
-        android:icon="@drawable/ic_launcher_foreground"
-        />
+    <item
+        android:id="@+id/newOrdersFragment"
+        android:icon="@drawable/ic_new_orders"
+        android:title="New" />
 
-    <item android:id="@+id/DetailedOrderFragment"
-        android:title="Detailed"
-        android:icon="@drawable/ic_launcher_foreground"
-        />
-
-    <item android:id="@+id/SavedOrderFragment"
-        android:title="Saved"
-        android:icon="@drawable/ic_launcher_foreground"
-        />
+    <item
+        android:id="@+id/savedOrdersFragment"
+        android:icon="@drawable/ic_saved_orders"
+        android:title="Saved" />
 </menu>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/orders_nav_graph"
+    app:startDestination="@id/newOrdersFragment">
+
+    <fragment
+        android:id="@+id/newOrdersFragment"
+        android:name="com.tuly.ordermanager.ui.fragments.NewOrdersFragment"
+        android:label="NewOrdersFragment">
+        <action
+            android:id="@+id/action_newOrdersFragment_to_detailedOrderFragment"
+            app:destination="@id/detailedOrderFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/savedOrdersFragment"
+        android:name="com.tuly.ordermanager.ui.fragments.SavedOrdersFragment"
+        android:label="SavedOrdersFragment">
+        <action
+            android:id="@+id/action_savedOrdersFragment_to_detailedOrderFragment"
+            app:destination="@id/detailedOrderFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/detailedOrderFragment"
+        android:name="com.tuly.ordermanager.ui.fragments.DetailedOrderFragment"
+        android:label="DetailedOrderFragment">
+        <argument
+            android:name="order"
+            app:argType="com.tuly.ordermanager.models.Order" />
+    </fragment>
+</navigation>

@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <data>
+
+        <variable
+            name="order"
+            type="com.tuly.ordermanager.models.Order" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="1dp"
@@ -16,7 +24,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginTop="16dp"
-            android:text="#20"
+            android:text='@{String.valueOf(order.id)}'
             android:textAppearance="@style/TextAppearance.AppCompat.Small.OrderManager.Medium"
             android:textColor="@android:color/white"
             android:textSize="45sp"
@@ -28,13 +36,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="30dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="Red Roses"
+            android:text="@{order.description}"
+            android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Small.OrderManager.Medium"
             android:textColor="@android:color/white"
             android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,16 +52,30 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="30dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="50"
+            android:text='@{String.valueOf(order.price)}'
+            android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Small.OrderManager.Medium"
             android:textColor="@android:color/white"
-
             android:textSize="15sp"
-            app:layout_constraintStart_toStartOf="@id/textview_description"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textview_description" />
+
+        <TextView
+            android:id="@+id/textview_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:text="@{order.status}"
+
+            android:textAppearance="@style/TextAppearance.AppCompat.Small.OrderManager.Medium"
+            android:textColor="@android:color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textview_price" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
